@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>상품 등록 페이지</title>
+  <style>
+    .layout {
+      margin : 0 auto;
+      width: 480px;
+    }
+
+    .layout > h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+  <h2>상품 조회</h2>
+  <ul>
+    <li>상품명 : <span th:text="${item.itemName}"></span></li>
+    <li>첨부파일 : <a th:if="${item.attachFile}" th:href="@{|/attatch/${item.id}|}" th:text="${item.attachFile.uploadFileName}"></a></li>
+    <li><img th:each="imageFile : ${item.imageFiles}" th:src="@{|/images/${imageFile.storeFileName}|}"></li>
+  </ul>
+</div>
+
+</body>
+</html>
